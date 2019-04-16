@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="Login" method="post">
+
+Name:<input type="text" name="uname" id="uname"uname><br>
+Password:<input type="password" name="password"><br>
+<input type="button" value="login" onclick="xo()"><br>
+
+</form>
+
+<script>
+function xo()
+{
+
+var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    console.log(this.responseText);
+    }
+  };
+
+xmlhttp.open("POST", "Login");
+
+var uname = document.getElementByID("uname").value
+xmlhttp.setRequestHeader("Content-Type", "application/json");
+xmlhttp.send(JSON.stringify({name:"", time:"2pm"}));
+}
+</script>
+</body>
+
+
+
+</html>
